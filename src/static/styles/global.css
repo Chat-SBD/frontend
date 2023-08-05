@@ -1,0 +1,15 @@
+/* general styles */
+
+:root { /* global colors */
+    --background: #000000;
+    --forground: #ffffff;
+    --important: #ffff00;
+    --minwidth: 1000px;
+    --border: 3px solid var(--forground);
+}
+
+* { /* apply universal style */
+    background-color: var(--background);
+    color: var(--forground);
+    font-family: 'Roboto', sans-serif;
+}
