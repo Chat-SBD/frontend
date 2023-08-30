@@ -5,11 +5,91 @@
     --forground: #ffffff;
     --important: #ffff00;
     --minwidth: 1000px;
-    --border: 3px solid var(--forground);
+    --border: 10px solid var(--forground);
 }
 
 * { /* apply universal style */
     background-color: var(--background);
     color: var(--forground);
-    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+header {
+    margin: 40px;
+}
+
+img {
+    margin: auto;
+    width: 80%;
+}
+
+.heading {
+    text-align: center;
+}
+
+.center-align {
+    margin: auto;
+    display: flex;
+    width: 80vw;
+}
+
+.types {
+    border: var(--border);
+    border-radius: 50px 50px 0px 0px;
+    border-bottom: 0px;
+}
+
+input[type="radio"] {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    margin: 0px;
+}
+
+.type {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    padding: 2vw;
+    font-size: 5vw;
+    background-color: #4b4b4b;
+    transition: all .3s ease-out;
+    border-bottom: var(--background);
+    float: left;
+    width: 100%;
+    font-family: "Roboto condensed", sans-serif;
+}
+
+.squat {
+    border-top-left-radius: 40px;
+}
+
+.bench {
+    border: var(--border);
+    border-width: 0px 5px 0px 5px;
+}
+
+.deadlift {
+    border-top-right-radius: 40px;
+}
+
+input[type = "radio"]:checked + label {
+    background-color: #ffffff;
+}
+
+.file {
+    height: 50vw;
+    border: var(--border);
+    border-width: 0px 10px 0px 10px;
+}
+
+.submit {
+    border: var(--border);
+    height: 8vw;
+    border-width: 0px 10px 10px 10px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    background-color: #c53737;
 }

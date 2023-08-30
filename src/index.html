@@ -6,10 +6,37 @@
         <meta name = "description" content = "Chat SBD">
 
         <link rel = "stylesheet" href = "static/styles/global.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@500&family=Kanit:wght@700&family=Roboto+Condensed&family=Wavefont:wght@100&display=swap" rel="stylesheet">
 
         <title>Chat SBD</title>
     </head>
 
     <body>
+        <header>
+            <img src = "static/images/logo.png">
+        </header>
+
+        <div class = "center-align types">
+            <input type = "radio" name = "lift" id = "squat">
+            <label class = "type squat" for = "squat">Squat</label>
+    
+            <input type = "radio" name = "lift" id = "bench">
+            <label class = "type bench" for = "bench">Bench</label>
+
+            <input type = "radio" name = "lift" id = "deadlift">
+            <label class = "type deadlift" for = "deadlift">Deadlift
+        </div>
+
+        <div class = "center-align file">
+            <label for = "video" class = "drop-container">
+                <input type = "file" id = "video">
+            </label>
+        </div>
+
+        <div class = "center-align submit">
+            <button>Submit</button>
+        </div>
     </body>
 </html>
