@@ -2,25 +2,27 @@
 
 :root { /* global colors */
     --background: #000000;
-    --forground: #ffffff;
+    --foreground: #ffffff;
     --important: #ffff00;
     --minwidth: 1000px;
-    --border: 10px solid var(--forground);
+    --border: 2vw solid var(--foreground);
 }
 
 * { /* apply universal style */
     background-color: var(--background);
-    color: var(--forground);
+    color: var(--foreground);
     text-align: center;
 }
 
 header {
-    margin: 40px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+ 
 }
 
 img {
     margin: auto;
-    width: 80%;
+    width: 95%;
 }
 
 .heading {
@@ -30,7 +32,7 @@ img {
 .center-align {
     margin: auto;
     display: flex;
-    width: 80vw;
+    width: 75vw;
 }
 
 .types {
@@ -66,14 +68,24 @@ input[type="radio"] {
     border-top-left-radius: 40px;
 }
 
+
+.sub-button {
+    background-color:#11954d;
+    border-width: 0px;
+    margin: auto;
+
+}
+
 .bench {
     border: var(--border);
-    border-width: 0px 5px 0px 5px;
+    border-width: 0px 1vw 0px 1vw;
 }
 
 .deadlift {
     border-top-right-radius: 40px;
 }
+
+
 
 input[type = "radio"]:checked + label {
     background-color: #ffffff;
@@ -81,15 +93,21 @@ input[type = "radio"]:checked + label {
 
 .file {
     height: 50vw;
+    width: 75vw;
     border: var(--border);
-    border-width: 0px 10px 0px 10px;
+    border-width: 0px 2vw 0px 2vw;
+    background-color: #272727;
+}
+
+.drop-container {
+    background-color: #272727;
 }
 
 .submit {
     border: var(--border);
     height: 8vw;
-    border-width: 0px 10px 10px 10px;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    background-color: #c53737;
+    border-width: 0px 2vw 2vw 2vw;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    background-color: #11954d;
 }
