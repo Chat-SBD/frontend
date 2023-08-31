@@ -4,7 +4,6 @@
     --background: #000000;
     --foreground: #ffffff;
     --important: #ffff00;
-    --minwidth: 1000px;
     --border: 2vw solid var(--foreground);
 }
 
@@ -15,9 +14,8 @@
 }
 
 header {
-    margin-top: 0px;
-    margin-bottom: 20px;
- 
+    margin-top: 0vw;
+    margin-bottom: 10vw;
 }
 
 img {
@@ -37,15 +35,15 @@ img {
 
 .types {
     border: var(--border);
-    border-radius: 50px 50px 0px 0px;
-    border-bottom: 0px;
+    border-radius: 5vw 5vw 0vw 0vw;
+    border-bottom: 1vw solid #ffffff;
 }
 
 input[type="radio"] {
     visibility: hidden;
     height: 0;
     width: 0;
-    margin: 0px;
+    margin: 0vw;
 }
 
 .type {
@@ -65,49 +63,71 @@ input[type="radio"] {
 }
 
 .squat {
-    border-top-left-radius: 40px;
+    border-top-left-radius: 2vw;
 }
-
 
 .sub-button {
     background-color:#11954d;
     border-width: 0px;
     margin: auto;
-
+    cursor: pointer;
+    font-size: 5vw;
+    width: 100%;
+    padding: 2vw;
 }
 
 .bench {
     border: var(--border);
-    border-width: 0px 1vw 0px 1vw;
+    border-width: 0vw 1vw 0vw 1vw;
 }
 
 .deadlift {
-    border-top-right-radius: 40px;
+    border-top-right-radius: 2vw;
 }
 
+input[type = "radio"]:checked + .squat {
+    background-color: #c53737;
+}
 
+input[type = "radio"]:checked + .bench {
+    background-color: #2232e0;
+}
 
-input[type = "radio"]:checked + label {
-    background-color: #ffffff;
+input[type = "radio"]:checked + .deadlift {
+    background-color: #d0ba11;
 }
 
 .file {
-    height: 50vw;
-    width: 75vw;
     border: var(--border);
-    border-width: 0px 2vw 0px 2vw;
-    background-color: #272727;
+    border-width: 0vw 2vw 0vw 2vw;
+    background-color: #4b4b4b;
+    height: max-content;
+}
+
+#video {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    margin: 0vw;
+}
+
+.upload {
+    background-color: #4b4b4b;
+    width: 74vw;
+    cursor: pointer;
 }
 
 .drop-container {
-    background-color: #272727;
+    background-color: #4b4b4b;
+    height: max-content;
 }
 
 .submit {
     border: var(--border);
-    height: 8vw;
+    height: 10vw;
     border-width: 0px 2vw 2vw 2vw;
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 3vw;
+    border-bottom-right-radius: 3vw;
     background-color: #11954d;
+    border-top: 1vw solid #ffffff;
 }
