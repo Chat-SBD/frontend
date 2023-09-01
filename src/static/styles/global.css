@@ -15,7 +15,7 @@
 
 header {
     margin-top: 0vw;
-    margin-bottom: 10vw;
+    margin-bottom: 2vw;
 }
 
 img {
@@ -130,4 +130,24 @@ input[type = "radio"]:checked + .deadlift {
     border-bottom-right-radius: 3vw;
     background-color: #11954d;
     border-top: 1vw solid #ffffff;
+}
+
+.lights {
+    margin: auto;
+    width: fit-content;
+    padding: 2vw;
+}
+
+.light {
+    margin: 1vw;
+    height: 12vw;
+    width: 12vw;
+    border-radius: 50%;
+    border: var(--border);
+    border-width: 0.5vw;
+    display: inline-block;
+}
+
+#light1 {
+    background-color: white;
 }
