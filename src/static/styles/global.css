@@ -151,3 +151,23 @@ input[type = "radio"]:checked + .deadlift {
 #light1 {
     background-color: white;
 }
+
+hr {
+    margin-top: 5vw;
+    width: 92vw;
+    border-top: 5px solid white;
+}
+
+.aboutlink {
+    float: left;
+    margin-left: 3vw;
+    margin-bottom: 3vw;
+    font-family: "Roboto condensed", sans-serif;
+    font-size: 5vw;
+    color: rgb(61, 160, 241);
+}
+
+p {
+    font-family: "Roboto condensed", sans-serif;
+    font-size: 5vw;
+}
