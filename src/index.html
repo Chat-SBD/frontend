@@ -6,9 +6,9 @@
         <meta name = "description" content = "Chat SBD">
 
         <link rel = "stylesheet" href = "static/styles/global.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@500&family=Kanit:wght@700&family=Roboto+Condensed&family=Wavefont:wght@100&display=swap" rel="stylesheet">
+        <link rel = "preconnect" href = "https://fonts.googleapis.com">
+        <link rel = "preconnect" href = "https://fonts.gstatic.com" crossorigin>
+        <link href = "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@500&family=Kanit:wght@700&family=Roboto+Condensed&family=Wavefont:wght@100&display=swap" rel = "stylesheet">
 
         <title>Chat SBD</title>
     </head>
@@ -20,7 +20,7 @@
             </header>
         </a>
 
-        <div class = "center-align types">
+        <div class = "center-align types" id = "types">
             <input type = "radio" name = "lift" id = "squat">
             <label class = "type squat" for = "squat">Squat</label>
     
@@ -31,14 +31,14 @@
             <label class = "type deadlift" for = "deadlift">Deadlift
         </div>
 
-        <div class = "center-align file">
+        <div class = "center-align file" id = "file">
             <label for = "video" class = "drop-container">
                 <input type = "file" id = "video">
                 <img src = "static/images/file_upload.png" class = "upload">
             </label>
         </div>
 
-        <div class = "center-align submit">
+        <div class = "center-align submit" id = "submit">
             <button class = "sub-button">Submit</button>
         </div>
 
@@ -50,5 +50,7 @@
 
         <hr>
         <a class = "aboutlink" href = "about.html">About</a>
+
+        <script src = "controller.js"></script>
     </body>
 </html>
