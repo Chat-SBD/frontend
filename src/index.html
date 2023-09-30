@@ -1,3 +1,25 @@
+<!--
+Copyright 2018 Google LLC. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+==============================================================================
+-->
+
+<!-- This tiny example illustrates how little code is necessary build
+/ train / predict from a model in TensorFlow.js.  Edit the associated
+index.js code and refresh this file in your browser to quickly
+explore the API. -->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,6 +30,8 @@
         <link rel = "stylesheet" href = "static/styles/global.css">
         <link rel = "preconnect" href = "https://fonts.googleapis.com">
         <link rel = "preconnect" href = "https://fonts.gstatic.com" crossorigin>
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
+        <link rel="icon" type="image/x-icon" href="static/images/chatFav.png">
         <link href = "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@500&family=Kanit:wght@700&family=Roboto+Condensed&family=Wavefont:wght@100&display=swap" rel = "stylesheet">
 
         <title>Chat SBD</title>
@@ -19,6 +43,10 @@
                 <img src = "static/images/logo.png">
             </header>
         </a>
+
+        <h4>Testing their Tensorflow model<hr/></h4>
+        <div id="micro-out-div">Training...</div>
+        <script src="./index.js"> </script>
 
         <div class = "center-align types" id = "types">
             <input type = "radio" name = "lift" id = "squat">
