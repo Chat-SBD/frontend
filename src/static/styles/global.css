@@ -172,5 +172,11 @@ hr {
 
 p {
     font-family: "Roboto condensed", sans-serif;
-    font-size: 3vw;
+    font-size: 4vw;
+    text-align: left;
+}
+
+h1 {
+    font-size: 6vw;
+    font-family: "Roboto condensed", sans-serif;
 }
