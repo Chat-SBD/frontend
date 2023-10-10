@@ -8,12 +8,13 @@
         <title>Chat SBD</title>
 
         <link rel="stylesheet" href="index.css">
+        <!--
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@500&family=Kanit:wght@700&family=Roboto+Condensed&family=Wavefont:wght@100&display=swap" rel="stylesheet">
         
         <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
-        <script src="static/lib/bundle.js"></script>
+        -->
         <script src="index.js" type="module"></script>
     </head>
 
@@ -37,9 +38,9 @@
 
         <div class="center-align file" id="file">
             <label for="video" class="drop-container">
-                <input type="file" id="video" accept="video/mp4, video/mov">
+                <input type="file" id="video">
                 <img id="uploadbtn" src="static/images/file_upload.png" class="upload">
-                <video id="playback" controls autoplay loop muted class="upload" style="display: none"></video>
+                <video id="playback" autoplay loop muted class="upload" style="display: none"></video>
             </label>
         </div>
 
@@ -53,8 +54,9 @@
             <span class="light" id="light3"></span>
         </div>
 
-        <!--invisible canvas for frame processing-->
-        <canvas id="framer" style="display: none;"></canvas>
+        <!--invisible canvas and <video> for frame processing-->
+        <canvas id="frame-hidden" width="300" height="300"></canvas>
+        <video id="vid-hidden" muted style="display: none;"></video>
 
         <hr>
         <a class="aboutlink" href="about.html">About</a>
