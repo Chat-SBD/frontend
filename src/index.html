@@ -15,6 +15,7 @@
         
         <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
         -->
+        <script src="https://cdn.jsdelivr.net/gh/jnordberg/gif.js@0.2.0/dist/gif.js"></script>
         <script src="index.js" type="module"></script>
     </head>
 
@@ -40,7 +41,7 @@
             <label for="video" class="drop-container">
                 <input type="file" id="video">
                 <img id="uploadbtn" src="static/images/file_upload.png" class="upload">
-                <video id="playback" autoplay loop muted class="upload" style="display: none"></video>
+                <img id="playback" class="upload" style="display: none"></img>
             </label>
         </div>
 
@@ -56,7 +57,7 @@
 
         <!--invisible canvas and <video> for frame processing-->
         <canvas id="frame-hidden" width="300" height="300"></canvas>
-        <video id="vid-hidden" muted style="display: none;"></video>
+        <video id="vid-hidden" muted autoplay style="display: none;"></video>
 
         <hr>
         <a class="aboutlink" href="about.html">About</a>

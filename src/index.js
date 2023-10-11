@@ -1,4 +1,4 @@
-import { modify } from "./static/lib/data.js"
+import { modify, makeGif } from "./static/lib/data.js"
 
 const squat = document.getElementById('squat')
 const bench = document.getElementById('bench')
@@ -31,32 +31,32 @@ const video = document.getElementById('playback')
 const uploadbtn = document.getElementById('uploadbtn')
 const hidden_vid = document.getElementById('vid-hidden')
 
+var called = 0
 // when you upload a video this happens
 input.addEventListener('change', () => {
     const file = input.files[0]
     if (file) {
         // place the video in our hidden <video> for processing
+        called = 0
         hidden_vid.src = URL.createObjectURL(file)
     }
 })
 
-var called = 0
 // when the uploaded video is loaded into the hidden <video>, this happens
-hidden_vid.addEventListener('canplay', async () => {
+hidden_vid.addEventListener('canplaythrough', async () => {
     // make sure we dont get a loop
     if (called == 0) {
         called = 1
         console.log('canplay')
         // call all our formatting functions on it
-        await modify(hidden_vid)
+        const frames = await modify(hidden_vid)
 
-        // the place the formatted video in the visible <video> element
-        /*
-        video.src = hidden_vid.src
+        // then place the formatted video in the visible <video> element
+        console.log(frames)
+        video.src = makeGif(frames)
         video.style.display = "block"
         uploadbtn.style.display = "none"
         input.style.display = "none"
-        */
     }
 })
 
