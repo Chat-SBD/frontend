@@ -30,7 +30,6 @@ hidden_vid.addEventListener('canplaythrough', async () => {
         called = true
         // call all our formatting functions on it
         modify(hidden_vid, (frames) => {
-            console.log(frames)
             // make the frames into a gif and display it
             makeGif(frames, (blob) => {
                 video.src = URL.createObjectURL(blob)
