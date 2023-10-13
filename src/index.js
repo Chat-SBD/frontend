@@ -65,6 +65,9 @@ const message = document.getElementById('status')
 
 subbtn.addEventListener('click', async () => {
     if(currentFrames) {
+        for (var i = 0; i < 3; i ++) {
+            circs[i].style.backgroundColor = 'black'
+        }
         // make our progress window show up
         overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'
         message.innerHTML = 'Loading model...'
@@ -98,6 +101,6 @@ subbtn.addEventListener('click', async () => {
         setTimeout(() => {
             overlay.style.backgroundColor = 'rgba(0, 0, 0, 0)'
             message.innerHTML = ''
-        }, 1000)
+        }, 2000)
     }
 })
