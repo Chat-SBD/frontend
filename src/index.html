@@ -1,54 +1,97 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset = "utf-8">
-        <meta name = "author" content = "Lucas Danburg, Leah Pascarelli">
-        <meta name = "description" content = "Chat SBD">
+        <meta charset="utf-8">
+        <meta name="author" content="Lucas Danburg, Leah Pascarelli">
+        <meta name="description" content="Chat SBD">
+        <link rel="icon" type="image/x-icon" href="static/images/chatFav.png">
+        <title>Chat SBD</title>
 
-        <link rel = "stylesheet" href = "static/styles/global.css">
+        <link rel="stylesheet" href="index.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@500&family=Kanit:wght@700&family=Roboto+Condensed&family=Wavefont:wght@100&display=swap" rel="stylesheet">
-
-        <title>Chat SBD</title>
+        
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
+        <script src="https://cdn.jsdelivr.net/gh/jnordberg/gif.js@0.2.0/dist/gif.js"></script>
+        <script src="index.js" type="module"></script>
     </head>
 
     <body>
-        <a href = "index.html">
+        <a href="index.html">
             <header>
-                <img src = "static/images/logo.png">
+                <img src="static/images/logo.png">
             </header>
         </a>
 
-        <div class = "center-align types">
-            <input type = "radio" name = "lift" id = "squat">
-            <label class = "type squat" for = "squat">Squat</label>
+        <div class="center-align types" id="types">
+            <input type="radio" name="lift" id="squat">
+            <label class="type squat" for="squat">Squat</label>
     
-            <input type = "radio" name = "lift" id = "bench">
-            <label class = "type bench" for = "bench">Bench</label>
+            <input type="radio" name="lift" id="bench">
+            <label class="type bench" for="bench">Bench</label>
 
-            <input type = "radio" name = "lift" id = "deadlift">
-            <label class = "type deadlift" for = "deadlift">Deadlift
+            <input type="radio" name="lift" id="deadlift">
+            <label class="type deadlift" for="deadlift">Deadlift
         </div>
 
-        <div class = "center-align file">
-            <label for = "video" class = "drop-container">
-                <input type = "file" id = "video">
-                <img src = "static/images/file_upload.png" class = "upload">
+        <div class="center-align file" id="file">
+            <label for="video" class="drop-container message-container">
+                <input type="file" id="video" style="display: none;">
+                <img id="uploadbtn" src="static/images/file_upload.png" class="upload">
+                <img id="playback" class="upload" style="display: none;" class="upload"></img>
+                <div class="overlay" id="overlay">
+                    <p id="status" class="status"></p>
+                </div>
             </label>
         </div>
 
-        <div class = "center-align submit">
-            <button class = "sub-button">Submit</button>
+        <div class="center-align submit" id="submit">
+            <button class="sub-button" id="subbtn">Submit</button>
         </div>
 
-        <div class = "center-align lights">
-            <span class = "light" id = "light1"></span>
-            <span class = "light" id = "light2"></span>
-            <span class = "light" id = "light3"></span>
+        <div class="center-align lights">
+            <span class="light" id="light1"></span>
+            <span class="light" id="light2"></span>
+            <span class="light" id="light3"></span>
         </div>
 
-        <hr>
-        <a class = "aboutlink" href = "about.html">About</a>
+        <!--invisible canvas and <video> for frame processing-->
+        <canvas id="frame-hidden" width="300" height="300" style="display: none;"></canvas>
+        <video id="vid-hidden" muted autoplay style="display: none;"></video>
+
+        <hr id="line">
+        <br>
+
+        <h1><i>About ChatSBD</i></h1>
+        <p class="disclaimer">
+            THESE MODELS ARE NOT ACTUALLY ACCURATE (ABOUT 0.25%).
+            USING THIS SOFTWARE COMES WITH ABSOLUTELY NO WARRANTY NO GUARANTEE OF SUCCESS
+            NO MONEY NO FAMILY NO FRIENDS ETC ETC. USE AT YOUR OWN RISK.
+        </p>
+        <p>
+            &nbsp; &nbsp;
+            Have you ever watched a video of yourself lifting and went damn, 
+            I wish I had a terribly inaccurate AI to tell me whether 
+            that was a good lift or not? Well now you have one!
+            <br>
+            &nbsp; &nbsp; I'm just kidding, although the outcome of this website may not be what you expect looking
+            at your lift, the process of creating this project was deeply insightful into the 
+            realm of machine learning. Throughout our process we:
+            <ul>
+                <li><p>Began with researching the different types of models, settled on LSTM</p></li>
+                <li><p>Wrote script scanning, chopping, and properly formatting YouTube videos of meets for the model to be trained on</p></li>
+                <li><p>Set up parallel processing on a Beowulf cluster of computers to train the model</p></li>
+                <li><p>Connected model to JavaScript and hosted it on this very website</p></li>
+            </ul>
+        </p>
+
+        <h1><i>Who we are</i></h1>
+
+        <p>
+            We are Lucas Danburg and Leah Pascarelli, two college students in the class of 2026.
+            <a href="https://www.linkedin.com/in/leaf21">Leah</a> studies Computer Science and Neuroscience at Northeastern University.
+            <a href="https://lucasdanb.org">Lucas</a> studies Biomedical Engineering at Fairfield University.
+        </p>
     </body>
 </html>
