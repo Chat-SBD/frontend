@@ -161,7 +161,7 @@ hr {
     border-width: 0vw;
     margin-top: 3vw;
     width: 92vw;
-    border-top: 5px solid white;
+    border-top: 5px solid #a2a2a2;
 }
 
 .aboutlink {
@@ -175,14 +175,15 @@ hr {
 
 p {
     font-family: "Roboto condensed", sans-serif;
-    font-size: 4vw;
+    font-size: 1.8vw;
     text-align: left;
     transition: all .3s ease-out;
     background-color: transparent;
+    margin: 5vw;
 }
 
 h1 {
-    font-size: 6vw;
+    font-size: 7vw;
     font-family: "Roboto condensed", sans-serif;
     margin: 1vw;
 }
@@ -190,6 +191,10 @@ h1 {
 .message-container {
     position: relative;
     display: inline-block;
+}
+
+.status {
+    font-size: 5vw;
 }
 
 .overlay {
@@ -205,4 +210,22 @@ h1 {
     justify-content: center;
     color: #fff;
     font-size: 24px;
+}
+
+.disclaimer {
+    color: #d4e162;
+}
+
+li {
+    margin: 5vw;
+    margin-top: 0vw;
+    margin-bottom: 0vw;
+}
+
+li > p {
+    margin: 0vw;
+}
+
+a {
+    color: deepskyblue;
 }

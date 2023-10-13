@@ -1,10 +1,10 @@
-import { FRAMES, SIZE } from './static/lib/CONSTANTS.js'
 import { color, squat, bench, deadlift } from './static/lib/style.js'
 import { modify, makeGif } from './static/lib/data.js'
 
-squat.addEventListener('click', () => { color('#c53737') })
-bench.addEventListener('click', () => { color('#2232e0') })
-deadlift.addEventListener('click', () => { color('#d0ba11') })
+var clicked = false
+squat.addEventListener('click', () => { color('#c53737'); clicked = true })
+bench.addEventListener('click', () => { color('#2232e0'); clicked = true })
+deadlift.addEventListener('click', () => { color('#d0ba11'); clicked = true })
 
 const input = document.getElementById('video')
 const video = document.getElementById('playback')
@@ -65,6 +65,12 @@ const message = document.getElementById('status')
 
 subbtn.addEventListener('click', async () => {
     if(currentFrames) {
+        // if you havent selected a lift...
+        if (!clicked) {
+            overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'
+            message.innerHTML = 'Select a lift above'
+            return
+        }
         for (var i = 0; i < 3; i ++) {
             circs[i].style.backgroundColor = 'black'
         }
@@ -92,6 +98,9 @@ subbtn.addEventListener('click', async () => {
         const label = result.indexOf(Math.max(...result))
 
         // light control
+        for (var i = 0; i < 3; i ++) {
+            circs[i].style.backgroundColor = 'red'
+        }
         for (var i = 0; i < label; i ++) {
             circs[i].style.backgroundColor = 'white'
         }
