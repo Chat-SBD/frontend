@@ -8,13 +8,11 @@
         <title>Chat SBD</title>
 
         <link rel="stylesheet" href="index.css">
-        <!--
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@500&family=Kanit:wght@700&family=Roboto+Condensed&family=Wavefont:wght@100&display=swap" rel="stylesheet">
         
         <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
-        -->
         <script src="https://cdn.jsdelivr.net/gh/jnordberg/gif.js@0.2.0/dist/gif.js"></script>
         <script src="index.js" type="module"></script>
     </head>
@@ -39,9 +37,9 @@
 
         <div class="center-align file" id="file">
             <label for="video" class="drop-container">
-                <input type="file" id="video">
+                <input type="file" id="video" style="display: none;">
                 <img id="uploadbtn" src="static/images/file_upload.png" class="upload">
-                <img id="playback" class="upload" style="display: none"></img>
+                <img id="playback" class="upload" style="display: none;" class="upload"></img>
             </label>
         </div>
 

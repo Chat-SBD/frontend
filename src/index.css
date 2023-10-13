@@ -77,14 +77,17 @@ input[type="radio"] {
     padding: 2vw;
 }
 
+/*
 .bench {
     border: var(--border);
     border-width: 0vw 1vw 0vw 1vw;
 }
+*/
 
 .deadlift {
     border-top-right-radius: 2vw;
 }
+
 
 input[type = "radio"]:checked + .squat {
     background-color: #c53737;
@@ -115,13 +118,14 @@ input[type = "radio"]:checked + .deadlift {
 
 .upload {
     background-color: #4b4b4b;
-    width: 74vw;
+    width: 100%;
     cursor: pointer;
 }
 
 .drop-container {
     background-color: #4b4b4b;
-    height: max-content;
+    height: 100%;
+    width: 100%;
     margin: auto;
 }
 
@@ -152,12 +156,9 @@ input[type = "radio"]:checked + .deadlift {
     display: inline-block;
 }
 
-#light1 {
-    background-color: white;
-}
-
 hr {
-    margin-top: 5vw;
+    border-width: 0vw;
+    margin-top: 3vw;
     width: 92vw;
     border-top: 5px solid white;
 }

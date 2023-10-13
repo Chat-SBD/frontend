@@ -1,5 +1,6 @@
-import { color, squat, bench, deadlift } from "./static/lib/style.js"
-import { modify, makeGif } from "./static/lib/data.js"
+import { FRAMES, SIZE } from './static/lib/CONSTANTS.js'
+import { color, squat, bench, deadlift } from './static/lib/style.js'
+import { modify, makeGif } from './static/lib/data.js'
 
 squat.addEventListener('click', () => { color('#c53737') })
 bench.addEventListener('click', () => { color('#2232e0') })
@@ -18,11 +19,16 @@ input.addEventListener('change', () => {
     if (file) {
         // reset 'called' so it can be processed
         called = false
+        // reset the lights too
+        for (var i = 0; i < 3; i ++) {
+            circs[i].style.backgroundColor = 'black'
+        }
         // place the video in our hidden <video> for processing
         hidden_vid.src = URL.createObjectURL(file)
     }
 })
 
+var currentFrames = false
 // when the uploaded video is loaded into the hidden <video>...
 hidden_vid.addEventListener('canplaythrough', async () => {
     // make sure we dont get repeated callbacks for the same vid
@@ -30,6 +36,7 @@ hidden_vid.addEventListener('canplaythrough', async () => {
         called = true
         // call all our formatting functions on it
         modify(hidden_vid, (frames) => {
+            currentFrames = frames
             // make the frames into a gif and display it
             makeGif(frames, (blob) => {
                 video.src = URL.createObjectURL(blob)
@@ -41,21 +48,36 @@ hidden_vid.addEventListener('canplaythrough', async () => {
     }
 })
 
-/*
+
 const subbtn = document.getElementById('subbtn')
+const circ1 = document.getElementById('light1')
+const circ2 = document.getElementById('light2')
+const circ3 = document.getElementById('light3')
+const circs = [circ1, circ2, circ3]
+
 subbtn.addEventListener('click', async () => {
-    console.log('submitted')
-    // our two parameters here are *video* - the HTML <video> element containing the processed submition
-    // and the type of video (s/b/d), determined by the currently selected button
-    var model = 0
-    if (squat.checked) { model = await tf.loadLayersModel('static/models/squat/model.json') }
-    else if (bench.checked) { model = await tf.loadLayersModel('static/models/bench/model.json') }
-    else if (deadlift.checked) { model = await tf.loadLayersModel('static/models/deadlift/model.json') }
+    if(currentFrames) {
+        var model = false
+        if (squat.checked) { model = await tf.loadLayersModel('static/models/squat/model.json') }
+        else if (bench.checked) { model = await tf.loadLayersModel('static/models/bench/model.json') }
+        else if (deadlift.checked) { model = await tf.loadLayersModel('static/models/deadlift/model.json') }
 
-    const circ1 = document.getElementById('light1')
-    const circ2 = document.getElementById('light2')
-    const circ3 = document.getElementById('light3')
+        var input = tf.tensor(currentFrames)
+        // add a dimension to the end of the tensor for the channels (64, 300, 300, 1)
+        input = tf.expandDims(input, -1)
+        // and another at the beginning for the batch (1, 64, 300, 300, 1)
+        input = tf.expandDims(input, 0)
 
+        // get the batch of results as an array of arrays
+        var result = await model.predict(input).array()
+        // get the result we want
+        result = result[0]
+        // get the light count
+        const label = result.indexOf(Math.max(...result))
+
+        for (var i = 0; i < label; i ++) {
+            circs[i].style.backgroundColor = 'white'
+        }
+    }
     // SPECIFICALLY DISCARD THE MODEL FROM MEMORY AT THE END OF THIS FUNCTION
 })
-*/
