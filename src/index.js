@@ -17,6 +17,9 @@ var called = false
 input.addEventListener('change', () => {
     const file = input.files[0]
     if (file) {
+        // make our progress window show up
+        overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'
+        message.innerHTML = 'Processing...'
         // reset 'called' so it can be processed
         called = false
         // reset the lights too
@@ -43,6 +46,8 @@ hidden_vid.addEventListener('canplaythrough', async () => {
                 video.style.display = "block"
                 uploadbtn.style.display = "none"
                 input.style.display = "none"
+                overlay.style.backgroundColor = 'rgba(0, 0, 0, 0)'
+                message.innerHTML = ''
             })
         })
     }
@@ -55,9 +60,16 @@ const circ2 = document.getElementById('light2')
 const circ3 = document.getElementById('light3')
 const circs = [circ1, circ2, circ3]
 
+const overlay = document.getElementById('overlay')
+const message = document.getElementById('status')
+
 subbtn.addEventListener('click', async () => {
     if(currentFrames) {
-        var model = false
+        // make our progress window show up
+        overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'
+        message.innerHTML = 'Loading model...'
+
+        var model = null
         if (squat.checked) { model = await tf.loadLayersModel('static/models/squat/model.json') }
         else if (bench.checked) { model = await tf.loadLayersModel('static/models/bench/model.json') }
         else if (deadlift.checked) { model = await tf.loadLayersModel('static/models/deadlift/model.json') }
@@ -69,15 +81,23 @@ subbtn.addEventListener('click', async () => {
         input = tf.expandDims(input, 0)
 
         // get the batch of results as an array of arrays
+        message.innerHTML = 'Loading model...<br>Predicting...'
         var result = await model.predict(input).array()
         // get the result we want
         result = result[0]
         // get the light count
         const label = result.indexOf(Math.max(...result))
 
+        // light control
         for (var i = 0; i < label; i ++) {
             circs[i].style.backgroundColor = 'white'
         }
+
+        model = null
+        message.innerHTML = 'Loading model...<br>Predicting...<br>Done'
+        setTimeout(() => {
+            overlay.style.backgroundColor = 'rgba(0, 0, 0, 0)'
+            message.innerHTML = ''
+        }, 1000)
     }
-    // SPECIFICALLY DISCARD THE MODEL FROM MEMORY AT THE END OF THIS FUNCTION
 })

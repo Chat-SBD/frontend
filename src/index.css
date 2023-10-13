@@ -154,6 +154,7 @@ input[type = "radio"]:checked + .deadlift {
     border: var(--border);
     border-width: 0.5vw;
     display: inline-block;
+    transition: all .3s ease-out;
 }
 
 hr {
@@ -176,9 +177,32 @@ p {
     font-family: "Roboto condensed", sans-serif;
     font-size: 4vw;
     text-align: left;
+    transition: all .3s ease-out;
+    background-color: transparent;
 }
 
 h1 {
     font-size: 6vw;
     font-family: "Roboto condensed", sans-serif;
+    margin: 1vw;
+}
+
+.message-container {
+    position: relative;
+    display: inline-block;
+}
+
+.overlay {
+    transition: all .3s ease-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 24px;
 }
